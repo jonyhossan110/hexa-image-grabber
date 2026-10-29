@@ -1,0 +1,139 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 430px; max-height: 600px; overflow-y: auto;
+  font-family: "Segoe UI", Arial, sans-serif; background: #12121c; color: #eeeef4;
+}
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 12px; background: linear-gradient(90deg, #1b2a6b, #4b2a85);
+  position: sticky; top: 0; z-index: 5;
+}
+.brand { display: flex; gap: 9px; align-items: center; }
+.title { font-size: 14px; font-weight: 700; }
+.domain { font-size: 11px; opacity: .85; max-width: 230px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.total-box { text-align: center; background: rgba(255,255,255,.14); border-radius: 10px; padding: 4px 12px; }
+.total-num { font-size: 20px; font-weight: 800; line-height: 1.05; }
+.total-label { font-size: 9.5px; letter-spacing: .4px; text-transform: uppercase; opacity: .9; }
+
+.urlbox {
+  display: flex; gap: 6px; padding: 10px 12px 0;
+}
+.urlbox textarea {
+  flex: 1; background: #1c1c2e; border: 1px solid #34345a; border-radius: 8px;
+  color: #eeeef4; padding: 8px 10px; font-size: 12.5px; min-width: 0; resize: vertical;
+  font-family: inherit;
+}
+.urlbox textarea::placeholder { color: #7d7d9c; }
+.url-btn {
+  background: linear-gradient(90deg, #2f7bff, #8a5cff); color: #fff; border: none;
+  padding: 8px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; cursor: pointer;
+  white-space: nowrap;
+}
+.crawlrow {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 7px 12px 0;
+}
+.crawl-label { font-size: 12px; color: #c9c9dd; cursor: pointer; }
+.crawlrow select {
+  background: #1c1c2e; color: #c9c9dd; border: 1px solid #34345a; border-radius: 6px;
+  font-size: 11.5px; padding: 3px 5px;
+}
+.toolbar, .toolbar2 {
+  display: flex; align-items: center; gap: 6px; padding: 8px 12px 0; flex-wrap: wrap;
+}
+.toolbar2 { padding-bottom: 8px; }
+.chips { display: flex; gap: 4px; flex-wrap: wrap; }
+.chip {
+  background: #23233a; color: #cfcfe4; border: 1px solid #34345a; border-radius: 20px;
+  padding: 3px 10px; font-size: 11.5px; cursor: pointer;
+}
+.chip.active { background: #6a5cff; color: #fff; border-color: #6a5cff; }
+select {
+  background: #23233a; color: #eeeef4; border: 1px solid #34345a; border-radius: 6px;
+  padding: 3px 6px; font-size: 11.5px; margin-left: auto;
+}
+.mini {
+  background: #23233a; color: #cfcfe4; border: 1px solid #34345a; border-radius: 6px;
+  padding: 3px 9px; font-size: 11.5px; cursor: pointer;
+}
+.mini:hover, .chip:hover { filter: brightness(1.2); }
+.tgl { font-size: 11.5px; color: #bdbdd6; margin-left: auto; cursor: pointer; }
+.tgl input { vertical-align: -2px; }
+
+.status { padding: 2px 12px 6px; font-size: 11.5px; color: #9d9db8; min-height: 14px; }
+.grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 4px 12px 12px;
+}
+.card {
+  background: #1c1c2e; border: 2px solid #2c2c48; border-radius: 9px; overflow: hidden;
+  cursor: pointer; position: relative;
+}
+.card.selected { border-color: #6a5cff; }
+.card img.thumb {
+  width: 100%; height: 92px; object-fit: cover; display: block; background: #26263e;
+}
+.card .meta {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 4px 6px; font-size: 10.5px; color: #bdbdd6;
+}
+.ext { background: #34345a; border-radius: 4px; padding: 0 5px; font-weight: 700; color: #fff; text-transform: uppercase; font-size: 9.5px; }
+.check {
+  position: absolute; top: 5px; left: 5px; width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(0,0,0,.55); border: 2px solid #fff; color: #fff; font-size: 13px;
+  display: none; align-items: center; justify-content: center; line-height: 1;
+}
+.card.selected .check { display: flex; background: #6a5cff; }
+.dupe-badge {
+  position: absolute; top: 5px; right: 5px; background: #b8860b; color: #fff;
+  font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 8px;
+}
+.open-btn {
+  position: absolute; bottom: 30px; right: 5px; background: rgba(0,0,0,.6); color: #fff;
+  border: none; border-radius: 50%; width: 20px; height: 20px; cursor: pointer; font-size: 11px;
+  display: none;
+}
+.card:hover .open-btn { display: block; }
+.basket {
+  display: flex; align-items: center; gap: 6px; margin: 0 12px 8px;
+  background: #2e2410; border: 1px solid #b8860b; border-radius: 8px; padding: 7px 9px;
+}
+.basket-info { font-size: 12px; color: #f2d492; flex: 1; }
+.basket-zip { background: #b8860b; color: #fff; border-color: #b8860b; font-weight: 700; }
+.basket-badge {
+  position: absolute; bottom: 30px; left: 5px; background: rgba(0,0,0,.6);
+  border-radius: 50%; width: 20px; height: 20px; font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+}
+.collect-btn {
+  background: linear-gradient(90deg, #2f7bff, #8a5cff); color: #fff; border: none;
+  padding: 9px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer;
+}
+.collect-btn:disabled { opacity: .45; cursor: default; }
+.empty { padding: 26px 12px; text-align: center; color: #9d9db8; font-size: 13px; }
+
+.progress { padding: 4px 12px 10px; }
+.bar { height: 8px; background: #26263e; border-radius: 5px; overflow: hidden; }
+#barFill { height: 100%; width: 0%; background: linear-gradient(90deg, #2f7bff, #8a5cff); transition: width .3s; }
+.progress-text { font-size: 11.5px; color: #bdbdd6; padding-top: 5px; }
+.progress-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.stop-btn {
+  background: #3a1d24; color: #ff9db0; border: 1px solid #a03a4d; border-radius: 6px;
+  font-size: 11.5px; font-weight: 700; padding: 4px 10px; cursor: pointer; white-space: nowrap;
+  margin-top: 5px;
+}
+.result {
+  margin: 0 12px 10px; background: #14301d; border: 1px solid #1faa55; color: #c9f2d8;
+  border-radius: 8px; padding: 8px 10px; font-size: 12px;
+}
+footer {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  padding: 10px 12px; background: #171726; position: sticky; bottom: 0; z-index: 5;
+  border-top: 1px solid #2c2c48;
+}
+.sel-count { font-size: 12.5px; color: #cfcfe4; }
+.sel-count span { font-weight: 800; color: #fff; }
+.zip-btn {
+  background: linear-gradient(90deg, #2f7bff, #8a5cff); color: #fff; border: none;
+  padding: 9px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer;
+}
+.zip-btn:disabled { opacity: .45; cursor: default; }

@@ -1,0 +1,34 @@
+{
+ "action": {
+  "default_icon": {
+   "128": "icons/icon128.png",
+   "16": "icons/icon16.png",
+   "48": "icons/icon48.png"
+  },
+  "default_popup": "popup.html",
+  "default_title": "Hexa Image Grabber \u2014 view & zip this page's images"
+ },
+ "background": {
+  "service_worker": "background.js"
+ },
+ "description": "Grab every content image of the pages you browse or the links you paste - or paste a website's main URL and it crawls ALL the site's pages by itself. Everything lands in ONE ZIP: fast parallel fetching, no duplicates, no browser/UI icons.",
+ "host_permissions": [
+  "<all_urls>"
+ ],
+ "icons": {
+  "128": "icons/icon128.png",
+  "16": "icons/icon16.png",
+  "48": "icons/icon48.png"
+ },
+ "manifest_version": 3,
+ "name": "Hexa Image Grabber",
+ "options_page": "options.html",
+ "permissions": [
+  "downloads",
+  "storage",
+  "scripting",
+  "activeTab",
+  "offscreen"
+ ],
+ "version": "4.6.0"
+}

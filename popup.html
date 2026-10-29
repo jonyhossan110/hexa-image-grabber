@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hexa Image Grabber</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <img src="icons/icon48.png" alt="" width="26" height="26">
+    <div>
+      <div class="title">Hexa Image Grabber</div>
+      <div class="domain" id="domain">Scanning page…</div>
+    </div>
+  </div>
+  <div class="total-box">
+    <div class="total-num" id="totalNum">–</div>
+    <div class="total-label">total images</div>
+  </div>
+</header>
+
+<div class="urlbox">
+  <textarea id="urlInput" rows="2" placeholder="Paste page links — one per line or many at once. Every link's images come together in ONE zip."></textarea>
+  <button id="urlZipBtn" class="url-btn">⬇ ZIP</button>
+</div>
+
+<div class="crawlrow">
+  <label class="crawl-label"><input type="checkbox" id="crawlChk"> 🌐 Whole website — auto-collect ALL its pages</label>
+  <select id="crawlMax" title="Maximum pages to crawl">
+    <option value="25">max 25 pages</option>
+    <option value="50" selected>max 50 pages</option>
+    <option value="100">max 100 pages</option>
+    <option value="200">max 200 pages</option>
+    <option value="500">max 500 pages</option>
+    <option value="1000">max 1,000 pages</option>
+    <option value="2000">max 2,000 pages</option>
+    <option value="5000">max 5,000 pages</option>
+    <option value="all">ALL pages (no limit)</option>
+  </select>
+</div>
+
+<div class="toolbar">
+  <div class="chips" id="typeChips">
+    <button data-type="all" class="chip active">All</button>
+    <button data-type="jpg" class="chip">JPG</button>
+    <button data-type="png" class="chip">PNG</button>
+    <button data-type="webp" class="chip">WebP</button>
+    <button data-type="gif" class="chip">GIF</button>
+    <button data-type="svg" class="chip">SVG</button>
+  </div>
+  <select id="sortSel" title="Sort">
+    <option value="page">Page order</option>
+    <option value="big">Biggest first</option>
+    <option value="small">Smallest first</option>
+  </select>
+</div>
+
+<div class="toolbar2">
+  <button id="selAll" class="mini">Select all</button>
+  <button id="selNone" class="mini">Clear</button>
+  <label class="tgl"><input type="checkbox" id="showSmall"> Show small images</label>
+</div>
+
+<div id="basketBar" class="basket" hidden>
+  <div class="basket-info">🧺 Collection: <b id="basketCount">0</b> images · <span id="basketSites">0</span> sites</div>
+  <button id="basketZip" class="mini basket-zip">⬇ Download ONE ZIP</button>
+  <button id="basketClear" class="mini">Clear</button>
+</div>
+
+<div id="status" class="status"></div>
+<div id="grid" class="grid"></div>
+<div id="empty" class="empty" hidden>No images found on this page.</div>
+
+<div id="progressBox" class="progress" hidden>
+  <div class="bar"><div id="barFill"></div></div>
+  <div class="progress-row">
+    <div id="progressText" class="progress-text">Working…</div>
+    <button id="stopBtn" class="stop-btn">⏹ Stop</button>
+  </div>
+</div>
+
+<div id="resultBox" class="result" hidden></div>
+
+<footer>
+  <div class="sel-count"><span id="selCount">0</span> selected</div>
+  <button id="collectBtn" class="collect-btn" disabled>＋ Add to Collection</button>
+</footer>
+
+<script src="popup.js"></script>
+</body>
+</html>
